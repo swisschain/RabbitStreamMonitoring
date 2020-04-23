@@ -7,6 +7,8 @@ namespace RabbitStreamMonitoring.Configuration
         public List<RabbitMonitoring> MonitoringList { get; set; }
 
         public string TelegramToken { get; set; }
+
+        public string GeneralChatId { get; set; }
     }
 
     public class RabbitMonitoring
