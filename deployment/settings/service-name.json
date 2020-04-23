@@ -9,5 +9,6 @@
       "ChatId": "${RabbitMQMonitoringChatId}"
     }
   ],
-  "TelegramToken": "${TelegramBot-TelegramToken}"
+  "TelegramToken": "${TelegramBot-TelegramToken}",
+  "GeneralChatId": "${RabbitMQMonitoring-General-ChatId}"
 }
