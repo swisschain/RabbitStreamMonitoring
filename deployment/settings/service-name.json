@@ -1,0 +1,13 @@
+{
+  "MonitoringList": [
+    {
+      "MonitoringName": "bitfinex_fake orderbooks",
+      "RabbitMqConnectionString": "${LiquidityRabbitMQConnectionString}",
+      "RabbitMqExchange": "lykke.exchange.bitfinex-fake.orderbooks",
+      "IgnoreWeekend": false,
+      "WarningTimeoutInMinutes": 1,
+      "ChatId": "${RabbitMQMonitoringChatId}"
+    }
+  ],
+  "TelegramToken": "${TelegramBot-TelegramToken}"
+}
