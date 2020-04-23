@@ -27,12 +27,12 @@ namespace RabbitStreamMonitoring.Service
                 return;
 
             _bot = new Telegram.Bot.TelegramBotClient(_config.TelegramToken);
-            var me = bot.GetMeAsync().Result;
+            var me = _bot.GetMeAsync().Result;
             Console.WriteLine($"Telegram bot user name: {me.Username}");
 
             foreach (var item in _config.MonitoringList)
             {
-                var monitoring = new ExchangeMonitoring(item, bot);
+                var monitoring = new ExchangeMonitoring(item, _bot);
                 _monitorings.Add(monitoring);
                 monitoring.SayHello().Wait();
             }
