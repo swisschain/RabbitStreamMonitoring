@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -46,21 +47,6 @@ namespace RabbitStreamMonitoring
         {
             Console.WriteLine($"Application name: {ApplicationInformation.AppName}");
             Console.WriteLine($"Application version: {ApplicationInformation.AppVersion}");
-
-            if (remoteSettingsConfig?.RemoteSettingsUrls != null)
-            {
-                foreach (var url in remoteSettingsConfig.RemoteSettingsUrls)
-                {
-                    Console.WriteLine($"Settings url: {url}");
-                    var cl = new HttpClient();
-                    var s = cl.GetStringAsync(url).Result;
-                    Console.WriteLine($"Length: {s.Length}. First: {s.Substring(0,20)}");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Settings url: none");
-            }
         }
 
         private static IHostBuilder CreateHostBuilder(ILoggerFactory loggerFactory, RemoteSettingsConfig remoteSettingsConfig) =>

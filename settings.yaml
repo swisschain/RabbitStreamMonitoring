@@ -4,11 +4,6 @@ Serilog:
 
     default: Debug
 
-    override:
-      Microsoft: Warning
-
-      System: Warning
-
   MonitoringList: 
     settings-key: RabbitMQMonitoring-MonitoringList
     types:
