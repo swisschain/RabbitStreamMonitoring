@@ -1,0 +1,21 @@
+Serilog:
+  
+  minimumLevel:
+
+    default: Debug
+
+    override:
+      Microsoft: Warning
+
+      System: Warning
+
+  MonitoringList: 
+    settings-key: RabbitMQMonitoring-MonitoringList
+    types:
+    - JsonArray
+
+  TelegramToken: 
+    settings-key: RabbitMQMonitoring-MonitoringList
+
+  GeneralChatId: 
+    settings-key: RabbitMQMonitoring-MonitoringList
