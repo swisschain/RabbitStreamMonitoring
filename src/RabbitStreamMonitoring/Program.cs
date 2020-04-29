@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -43,7 +44,7 @@ namespace RabbitStreamMonitoring
 
         private static void DescribeApplication(RemoteSettingsConfig remoteSettingsConfig)
         {
-            Console.WriteLine($"Application name: {ApplicationInformation.AppName}. Version: {ApplicationInformation.AppVersion}");
+            Console.WriteLine($"Application name: {ApplicationInformation.AppName}");
             Console.WriteLine($"Application version: {ApplicationInformation.AppVersion}");
 
             if (remoteSettingsConfig?.RemoteSettingsUrls != null)
@@ -51,6 +52,9 @@ namespace RabbitStreamMonitoring
                 foreach (var url in remoteSettingsConfig.RemoteSettingsUrls)
                 {
                     Console.WriteLine($"Settings url: {url}");
+                    var cl = new HttpClient();
+                    var s = cl.GetStringAsync(url).Result;
+                    Console.WriteLine($"Length: {s.Length}. First: {s.Substring(0,20)}");
                 }
             }
             else
