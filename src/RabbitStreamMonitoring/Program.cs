@@ -36,6 +36,14 @@ namespace RabbitStreamMonitoring
             catch (Exception ex)
             {
                 logger.LogCritical(ex, "Application has been terminated unexpectedly");
+
+                if (remoteSettingsConfig?.RemoteSettingsUrls != null)
+                {
+                    foreach (var url in remoteSettingsConfig.RemoteSettingsUrls)
+                    {
+                        Console.WriteLine($"Settings url: {url}");
+                    }
+                }
             }
         }
 
