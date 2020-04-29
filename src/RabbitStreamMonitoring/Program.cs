@@ -21,6 +21,8 @@ namespace RabbitStreamMonitoring
 
             var remoteSettingsConfig = ApplicationEnvironment.Config.Get<RemoteSettingsConfig>();
 
+            DescribeApplication(remoteSettingsConfig);
+
             using var loggerFactory = LogConfigurator.Configure("Common", remoteSettingsConfig.RemoteSettingsUrls ?? Array.Empty<string>());
             
             var logger = loggerFactory.CreateLogger<Program>();
@@ -36,14 +38,24 @@ namespace RabbitStreamMonitoring
             catch (Exception ex)
             {
                 logger.LogCritical(ex, "Application has been terminated unexpectedly");
+            }
+        }
 
-                if (remoteSettingsConfig?.RemoteSettingsUrls != null)
+        private static void DescribeApplication(RemoteSettingsConfig remoteSettingsConfig)
+        {
+            Console.WriteLine($"Application name: {ApplicationInformation.AppName}. Version: {ApplicationInformation.AppVersion}");
+            Console.WriteLine($"Application version: {ApplicationInformation.AppVersion}");
+
+            if (remoteSettingsConfig?.RemoteSettingsUrls != null)
+            {
+                foreach (var url in remoteSettingsConfig.RemoteSettingsUrls)
                 {
-                    foreach (var url in remoteSettingsConfig.RemoteSettingsUrls)
-                    {
-                        Console.WriteLine($"Settings url: {url}");
-                    }
+                    Console.WriteLine($"Settings url: {url}");
                 }
+            }
+            else
+            {
+                Console.WriteLine("Settings url: none");
             }
         }
 
