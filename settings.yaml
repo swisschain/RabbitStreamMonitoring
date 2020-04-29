@@ -4,13 +4,13 @@ Serilog:
 
     default: Debug
 
-  MonitoringList: 
-    settings-key: RabbitMQMonitoring-MonitoringList
-    types:
-    - JsonArray
+MonitoringList: 
+  settings-key: RabbitMQMonitoring-MonitoringList
+  types:
+  - JsonArray
 
-  TelegramToken: 
-    settings-key: RabbitMQMonitoring-TelegramToken
+TelegramToken: 
+  settings-key: RabbitMQMonitoring-TelegramToken
 
-  GeneralChatId: 
-    settings-key: RabbitMQMonitoring-GeneralChatId
+GeneralChatId: 
+  settings-key: RabbitMQMonitoring-GeneralChatId
