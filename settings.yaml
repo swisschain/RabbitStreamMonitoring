@@ -15,7 +15,7 @@ Serilog:
     - JsonArray
 
   TelegramToken: 
-    settings-key: RabbitMQMonitoring-MonitoringList
+    settings-key: RabbitMQMonitoring-TelegramToken
 
   GeneralChatId: 
-    settings-key: RabbitMQMonitoring-MonitoringList
+    settings-key: RabbitMQMonitoring-GeneralChatId
